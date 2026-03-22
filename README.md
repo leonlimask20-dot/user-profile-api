@@ -265,6 +265,6 @@ curl -X PUT http://localhost:8080/api/users/1 \
 
 ## Autor
 
-**Leon Nogueira Lima**
+**LNL**
 GitHub: [@leonlimask20-dot](https://github.com/leonlimask20-dot)
 Email: leonlimask@gmail.com
