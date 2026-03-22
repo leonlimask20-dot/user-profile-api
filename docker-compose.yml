@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: userprofile-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: userprofiledb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - userprofile_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: user-profile-api
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/userprofiledb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      # Em produção, substitua por variável de ambiente segura ou vault
+      JWT_SECRET: 3f6b2a8e1d4c9f7b0e5a2c8d1f4b9e3a6c7d0f2b5e8a1c4d7f0b3e6a9c2d5f8
+      JWT_EXPIRATION: 86400000
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  userprofile_data:
