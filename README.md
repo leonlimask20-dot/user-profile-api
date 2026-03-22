@@ -1,5 +1,5 @@
 # API de Perfis de Usuário
-![CI](https://github.com/leonlimask20-dot/NOME-DO-REPO/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/leonlimask20-dot/user-profile-api/actions/workflows/ci.yml/badge.svg)
 API REST segura para gerenciamento de perfis com autenticação JWT stateless, controle de acesso por papéis, persistência em PostgreSQL e testes automatizados.
 
 ---
