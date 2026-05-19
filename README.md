@@ -3,41 +3,42 @@
 ![CI](https://github.com/leonlimask20-dot/user-profile-api/actions/workflows/ci.yml/badge.svg)
 ![Java](https://img.shields.io/badge/Java-17-ED8B00?logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.2-6DB33F?logo=spring&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-autenticação-000000?logo=jsonwebtokens&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-authentication-000000?logo=jsonwebtokens&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-compose-2496ED?logo=docker&logoColor=white)
-![Testes](https://img.shields.io/badge/testes-JUnit5%20+%20Mockito-2E7D32)
+![Tests](https://img.shields.io/badge/tests-JUnit5%20+%20Mockito-2E7D32)
 
-API REST para gerenciamento de perfis de usuários com autenticação JWT stateless, controle de acesso por papéis e documentação interativa via Swagger UI.
+REST API for managing user profiles with stateless JWT authentication,
+role-based access control and interactive documentation via Swagger UI.
 
 ---
 
-## Links rápidos
+## Quick links
 
 | | |
 |---|---|
 | Swagger UI | `http://localhost:8080/swagger-ui.html` |
-| Rodar com Docker | `docker-compose up --build` |
-| Rodar testes | `mvn test` |
+| Run with Docker | `docker-compose up --build` |
+| Run tests | `mvn test` |
 
 ---
 
-## Principais competências demonstradas
+## Key skills demonstrated
 
-- API REST segura com autenticação JWT stateless
-- Controle de acesso por papéis: USER e ADMIN
-- Spring Security com SecurityFilterChain e filtro JWT customizado
-- BCrypt para hash de senhas com salt aleatório
-- Tratamento centralizado de erros com `@RestControllerAdvice`
-- Documentação interativa com Swagger UI (OpenAPI 3)
-- Testes unitários com JUnit 5 e Mockito
-- Containerização com Docker e Docker Compose
-- Pipeline de CI com GitHub Actions
+- Secure REST API with stateless JWT authentication
+- Role-based access control: USER and ADMIN
+- Spring Security with SecurityFilterChain and a custom JWT filter
+- BCrypt for password hashing with a random salt
+- Centralized error handling with `@RestControllerAdvice`
+- Interactive documentation with Swagger UI (OpenAPI 3)
+- Unit tests with JUnit 5 and Mockito
+- Containerization with Docker and Docker Compose
+- CI pipeline with GitHub Actions
 
 ---
 
-## Tecnologias
+## Tech stack
 
-| Tecnologia | Versão |
+| Technology | Version |
 |---|---|
 | Java | 17 |
 | Spring Boot | 3.2.3 |
@@ -51,40 +52,40 @@ API REST para gerenciamento de perfis de usuários com autenticação JWT statel
 
 ---
 
-## Fluxo de autenticação
+## Authentication flow
 
 ```
-1. POST /api/auth/register  →  cria usuário com senha BCrypt
-2. POST /api/auth/login     →  valida credenciais, retorna JWT
-3. GET  /api/users/profile  →  JwtAuthFilter valida o token
-4. Acesso liberado          →  retorna dados do perfil
+1. POST /api/auth/register  →  creates a user with a BCrypt-hashed password
+2. POST /api/auth/login     →  validates credentials, returns a JWT
+3. GET  /api/users/profile  →  JwtAuthFilter validates the token
+4. Access granted           →  returns the profile data
 ```
 
 ---
 
 ## Endpoints
 
-| Método | Rota | Acesso |
+| Method | Route | Access |
 |--------|------|--------|
-| POST | `/api/auth/register` | Público |
-| POST | `/api/auth/login` | Público |
+| POST | `/api/auth/register` | Public |
+| POST | `/api/auth/login` | Public |
 | GET | `/api/users/profile` | USER, ADMIN |
 | PUT | `/api/users/profile` | USER, ADMIN |
-| DELETE | `/api/users/{id}` | Apenas o próprio usuário |
+| DELETE | `/api/users/{id}` | The user themselves only |
 
 ---
 
-## Como executar
+## How to run
 
 ```bash
 docker-compose up --build
 ```
 
-Acesse o Swagger UI em `http://localhost:8080/swagger-ui.html`
+Open the Swagger UI at `http://localhost:8080/swagger-ui.html`
 
 ---
 
-## Testes
+## Tests
 
 ```bash
 mvn test
@@ -92,7 +93,19 @@ mvn test
 
 ---
 
-## Autor
+## 🤖 Agent Architecture
+
+This project was built and code-reviewed using a **multi-agent
+context-optimization workflow**: specialized AI agents each audit a single
+slice of the codebase — security, controllers, persistence, tests — within a
+strict context budget. The approach cuts review time and token cost while
+keeping full traceability of every finding.
+
+Methodology, agent templates and the full playbook: **[leonlim3.gumroad.com](https://leonlim3.gumroad.com)**
+
+---
+
+## Author
 
 **LNL**
 GitHub: [@leonlimask20-dot](https://github.com/leonlimask20-dot)
